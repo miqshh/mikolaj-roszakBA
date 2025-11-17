@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorksense | Mikołaj Roszak</title>
+    <!-- Ładowanie Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Używamy czcionki Inter dla tytułów i mono dla treści -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800;900&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Dodajemy CSS dla animacji AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* --- Bazowe style Neo-Brutalist --- */
+
+        /* Płynne przewijanie dla kotwic */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Ustawienie domyślnych czcionek i tła */
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: #FDF0D5; /* Jasny beż */
+            color: #000;
+            /* Subtelne tło siatki - klasyczny element "surowego" designu */
+            background-image: 
+                linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900; /* Bardzo gruba czcionka */
+        }
+
+        /* Główna klasa dla "brutalnych" kart */
+        .brutalist-card {
+            border: 2px solid #000;
+            border-radius: 0.75rem; /* Zaokrąglone rogi - to jest "neo" */
+            box-shadow: 4px 4px 0 0 #000;
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* Efekt "drgnięcia" przy najechaniu - kluczowy dla stylu */
+        .brutalist-card:hover {
+            box-shadow: 8px 8px 0 0 #000;
+            transform: translate(-4px, -4px);
+        }
+
+        /* Styl dla przycisków/linków */
+        .brutalist-button {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            text-decoration: none;
+            color: #000;
+            background-color: #fff;
+            border: 2px solid #000;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            box-shadow: 3px 3px 0 0 #000;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .brutalist-button:hover {
+            background-color: #eee;
+            box-shadow: 5px 5px 0 0 #000;
+            transform: translate(-2px, -2px);
+        }
+        
+        /* --- Animacja Marquee (przewijany pasek) --- */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            border-top: 2px solid #000;
+            border-bottom: 2px solid #000;
+            background-color: #fff;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-content span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;
+            margin: 0 2rem;
+        }
+
+        @keyframes marquee {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* --- Kreatywny pasek przewijania --- */
+        ::-webkit-scrollbar {
+            width: 12px;
+            background-color: #FDF0D5; /* Tło paska */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #000; /* Kolor suwaka */
+            border: 2px solid #FDF0D5; /* Obramowanie w kolorze tła */
+            border-radius: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- === PRZYKLEJONY NAGŁÓWEK === -->
+    <header class="sticky top-0 z-50 w-full p-4 bg-opacity-80 backdrop-blur-sm" style="background-color: rgba(253, 240, 213, 0.8);">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Zmiana 2: Pusty nagłówek -->
+            <h1 class="text-3xl md:text-4xl">&nbsp;</h1>
+            <nav class="hidden md:flex gap-2">
+                <!-- Zmiana 1: Tłumaczenie -->
+                <a href="#profile" class="brutalist-button">Profile</a>
+                <a href="#experience" class="brutalist-button">Experience</a>
+                <a href="#skills" class="brutalist-button">Skills</a>
+                <a href="#contact" class="brutalist-button">Contact</a>
+            </nav>
+            <!-- Menu mobilne (proste) -->
+            <div class="md:hidden">
+                <a href="#contact" class="brutalist-button">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- === SEKCJA HERO === -->
+    <section class="container mx-auto p-4 md:p-8 mt-8 md:mt-16">
+        <!-- Zmiana 3: Animacje AOS -->
+        <div class="text-center md:text-left">
+            <h2 class="text-6xl md:text-8xl lg:text-9xl font-black leading-none" data-aos="fade-down">
+                Mikołaj<br>Roszak
+            </h2>
+            <!-- Zmiana 1: Tłumaczenie -->
+            <p class="text-2xl md:text-3xl font-bold mt-4 text-gray-700" data-aos="fade-up" data-aos-delay="200">
+                (IT Transformation, Analytics & Process Specialist)
+            </p>
+        </div>
+    </section>
+
+    <!-- === MARQUEE / PRZEWIJANY PASEK === -->
+    <div class="marquee-container my-12 py-4">
+        <div class="marquee-content">
+            <!-- Zmiana 1: Tłumaczenie -->
+            <span>AI TRANSFORMATION LEADER</span>
+            <span>PROCESS ANALYSIS (RACI/ITIL)</span>
+            <span>POWERAPPS & AUTOMATION</span>
+            <span>KANBAN & WATERFALL</span>
+            <span>L2/L3 SUPPORT</span>
+            <span>M365 & COPILOT</span>
+            <!-- Powtórzenie dla płynnej pętli -->
+            <span>AI TRANSFORMATION LEADER</span>
+            <span>PROCESS ANALYSIS (RACI/ITIL)</span>
+            <span>POWERAPPS & AUTOMATION</span>
+            <span>KANBAN & WATERFALL</span>
+            <span>L2/L3 SUPPORT</span>
+            <span>M365 & COPILOT</span>
+        </div>
+    </div>
+
+    <!-- === GŁÓWNA ZAWARTOŚĆ (SIATKA) === -->
+    <main class="container mx-auto p-4">
+        
+        <!-- Układ siatki: 2 kolumny na dużym ekranie, 1 na małym -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+            <!-- === Kolumna 1 (Profil i Edukacja) === -->
+            <div class="lg:col-span-1 flex flex-col gap-6">
+
+                <!-- Karta: Profil Zawodowy -->
+                <!-- Zmiana 3: Animacja AOS -->
+                <article id="profile" class="brutalist-card bg-[#669BBC] p-6" data-aos="fade-right"> <!-- Jasny niebieski -->
+                    <!-- Zmiana 1: Tłumaczenie -->
+                    <h3 class="text-3xl mb-4">Professional Profile</h3>
+                    <p class="mb-4">
+                        Experienced specialist combining advanced L2/L3 support with strategic
+                        initiatives, process analysis, and AI implementations in key Logistics
+                        (VGP Center) and Automotive areas.
+                    </p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>AI Transformation Leader:</strong> Responsible for planning, pilot implementation, and presentation of Copilot M365 to Management. Trained >100 people.</li>
+                        <li><strong>Analysis & Processes (RACI/ITIL):</strong> Created new FileCloud file exchange procedure (RACI) from scratch. Active participation in Change Management (ITIL).</li>
+                        <li><strong>Optimization & Automation:</strong> Deployed PowerApps application and AI automation, saving 8h/month.</li>
+                        <li><strong>Project Methodologies:</strong> Practical knowledge of Kanban and Waterfall.</li>
+                    </ul>
+                </article>
+
+                <!-- Karta: Wykształcenie -->
+                <!-- Zmiana 3: Animacja AOS -->
+                <article id="education" class="brutalist-card bg-[#F0A690] p-6" data-aos="fade-right" data-aos-delay="150"> <!-- Jasny pomarańczowy -->
+                    <!-- Zmiana 1: Tłumaczenie -->
+                    <h3 class="text-3xl mb-4">Education</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-bold">MSc, Computer Science</h4>
+                            <p class="text-sm">Collegium Da Vinci (October 2025 - Present)</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">BSc, IT in Management</h4>
+                            <p class="text-sm">Collegium Da Vinci (October 2021 - June 2024)</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">IT Technician</h4>
+                            <p class="text-sm">Zespół Szkół nr 1 w Swarzędzu (2017 - 2021)</p>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- === Kolumna 2 (Doświadczenie i Kompetencje) === -->
+            <div class="lg:col-span-2 flex flex-col gap-6">
+
+                <!-- Karta: Doświadczenie Zawodowe -->
+                <!-- Zmiana 3: Animacja AOS -->
+                <article id="experience" class="brutalist-card bg-[#C1D5A4] p-6" data-aos="fade-left"> <!-- Jasna zieleń -->
+                    <!-- Zmiana 1: Tłumaczenie -->
+                    <h3 class="text-3xl mb-4">Professional Experience</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-2xl font-bold">Service Desk Specialist</h4>
+                        <p class="font-bold text-gray-700">Volkswagen Group Polska (December 2022 - Present)</p>
+                        <p class="text-sm italic mb-2">(Extended scope: Process Analysis, L3 Support, Project Leader Support)</p>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><strong>AI Implementation/Digital Transformation Leader:</strong> Managed Copilot M365 pilot phase (planning, Kanban deployment, presentations to Management, training).</li>
+                            <li><strong>Process Analysis & Optimization:</strong> Created RACI procedure and documentation for FileCloud. Participated in Change Management. Deployed PowerApps and AI automation.</li>
+                            <li><strong>International Cooperation:</strong> Regular meetings in English with German HQ (license/AI projects), coordination of external vendors.</li>
+                            <li><strong>Critical L3 Support & Administration:</strong> Ensured system continuity at VGP Logistics Center (supporting 150-200 users), AD/Intune administration.</li>
+                            <li><strong>Security & Compliance:</strong> Implemented CyberSecurity (SOC) recommendations, license monitoring.</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6 opacity-80">
+                        <h4 class="text-xl font-bold">Helpdesk Intern</h4>
+                        <p class="font-bold text-gray-700">Volkswagen Group Polska (January 2022)</p>
+                    </div>
+
+                    <div class="opacity-80">
+                        <h4 class="text-xl font-bold">Service Technician / Salesman</h4>
+                        <p class="font-bold text-gray-700">Medyk PC, Swarzędz (May 2021 - December 2021)</p>
+                    </div>
+                </article>
+
+                <!-- Karta: Kluczowe Kompetencje -->
+                <!-- Zmiana 3: Animacja AOS -->
+                <article id="skills" class="brutalist-card bg-[#FFD9DA] p-6" data-aos="fade-left" data-aos-delay="150"> <!-- Jasny róż -->
+                    <!-- Zmiana 1: Tłumaczenie -->
+                    <h3 class="text-3xl mb-4">Key Competencies</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- Kolumna 1 -->
+                        <div>
+                            <h4 class="text-lg font-bold underline">Methodologies & Processes</h4>
+                            <ul class="list-none mt-2 space-y-1">
+                                <li>Kanban & Waterfall</li>
+                                <li>ITIL (Change Mgmt)</li>
+                                <li>Technical Writing</li>
+                                <li>RACI</li>
+                                <li>Miro, Visual Paradigm</li>
+                            </ul>
+                        </div>
+                        <!-- Kolumna 2 -->
+                        <div>
+                            <h4 class="text-lg font-bold underline">Architecture & Automation</h4>
+                            <ul class="list-none mt-2 space-y-1">
+                                <li>PowerApps</li>
+                                <li>M365 (incl. Copilot AI)</li>
+                                <li>PowerShell (Scripting)</li>
+                                <li>AI Automation</li>
+                                <li>SQL (Basics)</li>
+                            </ul>
+                        </div>
+                        <!-- Kolumna 3 -->
+                        <div>
+                            <h4 class="text-lg font-bold underline">Administration & Support</h4>
+                            <ul class="list-none mt-2 space-y-1">
+                                <li>English B2</li>
+                                <li>Active Directory (AD)</li>
+                                <li>Intune (MDM)</li>
+                                <li>Critical Ops Support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- === STOPKA I KONTAKT === -->
+    <!-- Zmiana 3: Animacja AOS -->
+    <footer id="contact" class="mt-16 p-8 border-t-2 border-black bg-white" data-aos="fade-up">
+        <div class="container mx-auto text-center">
+            <!-- Zmiana 1: Tłumaczenie -->
+            <h2 class="text-4xl md:text-6xl font-black mb-6">Let's Talk.</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <a href="mailto:mr29448@gmail.com" class="brutalist-button text-lg md:text-xl !bg-[#669BBC]">
+                    mr29448@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/mikołaj-roszak-9a1609227" target="_blank" rel="noopener noreferrer" class="brutalist-button text-lg md:text-xl !bg-[#C1D5A4]">
+                    LinkedIn
+                </a>
+            </div>
+            <p class="mt-8 text-sm text-gray-600">
+                Mikołaj Roszak | Location: Swarzędz, 62-020
+            </p>
+        </div>
+    </footer>
+
+    <!-- Zmiana 3: Dodanie skryptu AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800, // Czas trwania animacji
+        once: false, // Czy animacja ma się odpalić tylko raz
+        mirror: true, // Czy elementy mają się animować "z powrotem" przy scrollu w górę
+        offset: 120, // Opóźnienie startu animacji
+      });
+    </script>
+
+</body>
+</html>
