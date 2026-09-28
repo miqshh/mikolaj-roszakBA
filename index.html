@@ -1,335 +1,148 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Mikołaj Roszak</title>
-    <!-- Ładowanie Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Używamy czcionki Inter dla tytułów i mono dla treści -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800;900&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Dodajemy CSS dla animacji AOS (Animate On Scroll) -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <style>
-        /* --- Bazowe style Neo-Brutalist --- */
-
-        /* Płynne przewijanie dla kotwic */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Ustawienie domyślnych czcionek i tła */
-        body {
-            font-family: 'IBM Plex Mono', monospace;
-            background-color: #FDF0D5; /* Jasny beż */
-            color: #000;
-            /* Subtelne tło siatki - klasyczny element "surowego" designu */
-            background-image: 
-                linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 900; /* Bardzo gruba czcionka */
-        }
-
-        /* Główna klasa dla "brutalnych" kart */
-        .brutalist-card {
-            border: 2px solid #000;
-            border-radius: 0.75rem; /* Zaokrąglone rogi - to jest "neo" */
-            box-shadow: 4px 4px 0 0 #000;
-            transition: all 0.2s ease-in-out;
-        }
-
-        /* Efekt "drgnięcia" przy najechaniu - kluczowy dla stylu */
-        .brutalist-card:hover {
-            box-shadow: 8px 8px 0 0 #000;
-            transform: translate(-4px, -4px);
-        }
-
-        /* Styl dla przycisków/linków */
-        .brutalist-button {
-            display: inline-block;
-            font-family: 'Inter', sans-serif;
-            font-weight: 800;
-            text-decoration: none;
-            color: #000;
-            background-color: #fff;
-            border: 2px solid #000;
-            border-radius: 0.5rem;
-            padding: 0.5rem 1rem;
-            box-shadow: 3px 3px 0 0 #000;
-            transition: all 0.2s ease-in-out;
-        }
-
-        .brutalist-button:hover {
-            background-color: #eee;
-            box-shadow: 5px 5px 0 0 #000;
-            transform: translate(-2px, -2px);
-        }
-        
-        /* --- Animacja Marquee (przewijany pasek) --- */
-        .marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
-            border-top: 2px solid #000;
-            border-bottom: 2px solid #000;
-            background-color: #fff;
-        }
-
-        .marquee-content {
-            display: inline-block;
-            padding-left: 100%;
-            animation: marquee 30s linear infinite;
-        }
-
-        .marquee-content span {
-            font-family: 'Inter', sans-serif;
-            font-weight: 800;
-            font-size: 1.25rem;
-            margin: 0 2rem;
-        }
-
-        @keyframes marquee {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* --- Kreatywny pasek przewijania --- */
-        ::-webkit-scrollbar {
-            width: 12px;
-            background-color: #FDF0D5; /* Tło paska */
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #000; /* Kolor suwaka */
-            border: 2px solid #FDF0D5; /* Obramowanie w kolorze tła */
-            border-radius: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
-            border-radius: 10px;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#130d27">
+  <meta name="description" content="Mikołaj Roszak — Senior AI & Automation Specialist. Enterprise AI, Copilot agents, adoption and automation at Volkswagen Financial Services Poland.">
+  <title>Mikołaj Roszak — Senior AI & Automation Specialist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--paper:#fffdf8;--ink:#0d0d0f;--muted:#55525d;--violet:#9b87ff;--violet-deep:#281d53;--violet-soft:#eee9ff;--acid:#dfff72;--line:#0d0d0f;--shadow:7px 7px 0 var(--ink)}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(13,13,15,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(13,13,15,.035) 1px,transparent 1px);background-size:36px 36px}
+    ::selection{background:var(--acid);color:var(--ink)}
+    a{color:inherit}
+    a:focus-visible,button:focus-visible{outline:3px solid #6c50ff;outline-offset:4px}
+    .skip-link{position:absolute;top:-80px;left:12px;background:var(--acid);border:2px solid var(--ink);padding:10px 14px;z-index:1000}.skip-link:focus{top:12px}
+    .mono{font-family:"DM Mono",ui-monospace,SFMono-Regular,monospace}
+    .wrap{width:min(1390px,calc(100% - 64px));margin-inline:auto}
+    .eyebrow{font:500 .72rem/1.4 "DM Mono",monospace;letter-spacing:.11em;text-transform:uppercase}
+    .site-header{position:relative;z-index:20;background:var(--paper);border-bottom:2px solid var(--ink)}
+    .site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:78px}
+    .brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;font-weight:900;letter-spacing:-.06em;font-size:1.18rem;white-space:nowrap}
+    .brand-mark{display:grid;place-items:center;width:37px;height:37px;background:var(--violet);border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);font-size:.9rem}
+    .nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .nav a{font:500 .72rem "DM Mono",monospace;letter-spacing:.04em;text-decoration:none;text-transform:uppercase;padding:10px 11px;border:2px solid transparent;transition:background .2s,border-color .2s,transform .2s}
+    .nav a:hover{background:var(--acid);border-color:var(--ink);transform:translate(-2px,-2px)}
+    .nav .nav-cta{background:var(--acid);border-color:var(--ink);box-shadow:3px 3px 0 var(--ink)}
+    .hero{background:var(--violet-deep);color:var(--paper);overflow:hidden;position:relative;border-bottom:2px solid var(--ink)}
+    .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(155,135,255,.35),transparent 37%),linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);background-size:auto,42px 42px,42px 42px;pointer-events:none}
+    .hero::after{content:"✳";font-size:clamp(15rem,34vw,38rem);line-height:1;position:absolute;right:-.08em;top:-.21em;color:rgba(223,255,114,.09);font-weight:900;pointer-events:none}
+    .hero-inner{position:relative;z-index:1;padding:92px 0 86px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(290px,.6fr);gap:55px;align-items:end}
+    .hero-kicker{display:inline-flex;align-items:center;gap:10px;background:var(--acid);color:var(--ink);border:2px solid var(--ink);padding:8px 12px;box-shadow:5px 5px 0 #05040a;margin-bottom:26px;font:500 .72rem "DM Mono",monospace;text-transform:uppercase;letter-spacing:.06em}
+    .pulse{width:8px;height:8px;border-radius:50%;background:#281d53;box-shadow:0 0 0 4px rgba(40,29,83,.15)}
+    .hero h1{font-size:clamp(5rem,11.5vw,12.3rem);line-height:.78;letter-spacing:-.105em;text-transform:uppercase;margin:0 0 34px;font-weight:900}
+    .hero h1 span{display:block}.hero h1 .outline{-webkit-text-stroke:2px var(--paper);color:transparent}
+    .role{font-size:clamp(1.45rem,2.4vw,2.7rem);line-height:1.15;font-weight:800;letter-spacing:-.055em;max-width:680px;margin:0 0 24px}.role em{font-style:normal;color:var(--acid)}
+    .hero-copy{font-size:1rem;line-height:1.65;color:#e0daec;max-width:610px;margin:0 0 28px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px}.button{display:inline-flex;align-items:center;justify-content:center;gap:14px;padding:15px 19px;border:2px solid var(--ink);background:var(--acid);color:var(--ink);box-shadow:5px 5px 0 var(--ink);text-decoration:none;font-weight:800;font-size:.86rem;transition:transform .2s,box-shadow .2s,background .2s}.button:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink)}.button.secondary{background:var(--paper)}.hero .button{box-shadow:5px 5px 0 #05040a}.hero .button:hover{box-shadow:8px 8px 0 #05040a}.button svg{width:18px;height:18px}
+    .hero-aside{align-self:stretch;display:flex;flex-direction:column;justify-content:flex-end;gap:16px}.status-card{background:var(--paper);color:var(--ink);border:2px solid var(--ink);box-shadow:var(--shadow);padding:24px;transform:rotate(2deg)}.status-card .eyebrow{color:#5a5075}.status-card strong{display:block;font-size:1.55rem;line-height:1.12;letter-spacing:-.055em;margin:16px 0 10px}.status-card p{line-height:1.5;font-size:.86rem;margin:0}.status-card .mini-tag{display:inline-block;background:var(--violet);border:2px solid var(--ink);font:500 .68rem "DM Mono",monospace;text-transform:uppercase;padding:7px 9px;margin-top:16px}
+    .vertical-note{font:500 .7rem "DM Mono",monospace;letter-spacing:.09em;text-transform:uppercase;color:#d8d0e7;align-self:end}
+    .ticker{border-bottom:2px solid var(--ink);background:var(--acid);overflow:hidden}.ticker-track{display:flex;width:max-content;animation:move 27s linear infinite}.ticker span{font:900 1.06rem Inter,sans-serif;white-space:nowrap;padding:17px 22px;text-transform:uppercase;letter-spacing:-.03em}.ticker b{margin-left:44px}@keyframes move{to{transform:translateX(-50%)}}
+    main section{scroll-margin-top:25px}.section{padding:105px 0}.section-top{display:flex;align-items:end;justify-content:space-between;gap:20px;border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:34px}.section-heading{display:flex;align-items:start;gap:18px}.section-index{background:var(--violet);border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);padding:8px 10px;font:500 .76rem "DM Mono",monospace}.section h2{font-size:clamp(2.6rem,6.6vw,6.6rem);line-height:.9;letter-spacing:-.085em;text-transform:uppercase;margin:0;font-weight:900}.section-top p{max-width:285px;font-size:.85rem;line-height:1.5;color:var(--muted);margin:0 0 3px}
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.metric{border:2px solid var(--ink);box-shadow:var(--shadow);padding:22px 20px 24px;min-height:171px;display:flex;flex-direction:column;justify-content:space-between;background:var(--violet-soft)}.metric:nth-child(2){background:var(--acid)}.metric:nth-child(3){background:#fff}.metric:nth-child(4){background:var(--violet)}.metric strong{font-size:clamp(2.5rem,5vw,5.2rem);letter-spacing:-.09em;line-height:1;font-weight:900}.metric span{font-size:.84rem;line-height:1.3;font-weight:700}.metric small{display:block;font:500 .63rem "DM Mono",monospace;text-transform:uppercase;margin-top:7px;letter-spacing:.04em}
+    .intro-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.65fr);gap:18px;margin-top:18px}.intro-panel{border:2px solid var(--ink);padding:29px;background:var(--paper)}.intro-panel.dark{background:var(--ink);color:var(--paper)}.intro-panel .eyebrow{display:inline-block;margin-bottom:16px}.intro-panel p{font-size:clamp(1.16rem,1.8vw,1.75rem);line-height:1.4;letter-spacing:-.035em;font-weight:700;margin:0}.intro-panel.dark p{font-size:1.03rem;line-height:1.55;font-weight:500;letter-spacing:-.015em}.intro-panel mark{background:var(--acid);padding:0 .12em}
+    .case-section{background:var(--violet-soft);border-block:2px solid var(--ink)}.case-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}.case{grid-column:span 4;background:var(--paper);border:2px solid var(--ink);box-shadow:var(--shadow);padding:24px;display:flex;flex-direction:column;min-height:380px;transition:transform .2s,box-shadow .2s}.case:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--ink)}.case.featured{grid-column:span 6;background:var(--violet);min-height:365px}.case.acid{background:var(--acid)}.case.wide{grid-column:span 6}.case-top{display:flex;align-items:start;justify-content:space-between;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:15px}.case-id{font:500 .72rem "DM Mono",monospace}.case-state{font:500 .65rem "DM Mono",monospace;text-transform:uppercase;border:1.5px solid var(--ink);padding:5px 7px;white-space:nowrap;background:var(--paper)}.case h3{font-size:clamp(1.65rem,2.45vw,2.75rem);line-height:1.03;letter-spacing:-.065em;text-transform:uppercase;margin:23px 0 14px}.case p{font-size:.91rem;line-height:1.6;margin:0 0 22px}.case-foot{margin-top:auto;border-top:1.5px solid var(--ink);padding-top:14px;display:flex;flex-wrap:wrap;gap:7px}.chip{font:500 .62rem "DM Mono",monospace;text-transform:uppercase;letter-spacing:.02em;background:rgba(255,255,255,.55);border:1.5px solid var(--ink);padding:5px 7px}.case .outcome{margin-top:4px;font-size:.84rem;font-weight:800}
+    .method-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:2px solid var(--ink);box-shadow:var(--shadow);background:#fff}.step{min-height:260px;padding:23px 19px;border-right:2px solid var(--ink);position:relative}.step:last-child{border-right:0}.step:nth-child(even){background:var(--violet-soft)}.step:nth-child(4){background:var(--acid)}.step .num{font:500 .75rem "DM Mono",monospace}.step .symbol{font-size:3rem;line-height:1;margin:23px 0 18px}.step h3{font-size:1.22rem;letter-spacing:-.055em;text-transform:uppercase;margin:0 0 10px}.step p{font-size:.82rem;line-height:1.5;margin:0;color:#3e3a43}
+    .governance{margin-top:34px;background:var(--violet-deep);color:var(--paper);border:2px solid var(--ink);box-shadow:var(--shadow);padding:30px;display:grid;grid-template-columns:minmax(200px,.55fr) 1fr;gap:30px}.governance h3{font-size:clamp(1.8rem,3vw,3rem);letter-spacing:-.065em;line-height:1.05;margin:8px 0 0;text-transform:uppercase}.governance p{font-size:.91rem;line-height:1.6;margin:0 0 13px;color:#ebe7f7}.governance .tags{display:flex;flex-wrap:wrap;gap:8px}.governance .tags span{background:var(--acid);color:var(--ink);border:1.5px solid var(--ink);padding:7px 9px;font:500 .66rem "DM Mono",monospace;text-transform:uppercase}
+    .stack-section{background:var(--acid);border-block:2px solid var(--ink)}.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.stack-card{border:2px solid var(--ink);box-shadow:var(--shadow);background:var(--paper);padding:22px;min-height:230px}.stack-card:nth-child(even){background:var(--violet-soft)}.stack-card h3{font-size:1.18rem;text-transform:uppercase;letter-spacing:-.05em;margin:0 0 19px;border-bottom:2px solid var(--ink);padding-bottom:11px}.stack-card ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:7px}.stack-card li{border:1.5px solid var(--ink);padding:7px 8px;font:500 .7rem "DM Mono",monospace;background:#fff}
+    .timeline{display:grid;grid-template-columns:1fr;gap:0;border-top:2px solid var(--ink)}.timeline-row{display:grid;grid-template-columns:170px 1fr 1.5fr;gap:24px;border-bottom:2px solid var(--ink);padding:24px 0}.timeline-date{font:500 .75rem "DM Mono",monospace;text-transform:uppercase;line-height:1.5}.timeline-title{font-size:1.3rem;font-weight:900;letter-spacing:-.045em;text-transform:uppercase}.timeline-title small{display:block;margin-top:8px;font-size:.85rem;font-weight:600;letter-spacing:0;text-transform:none}.timeline-desc{font-size:.9rem;line-height:1.58;margin:0}.timeline-row:first-child .timeline-title{color:#4f35ad}.timeline-row:first-child{background:linear-gradient(90deg,rgba(155,135,255,.13),transparent);padding-inline:14px}
+    .contact-section{background:var(--violet-deep);color:var(--paper);border-top:2px solid var(--ink);padding:100px 0 30px;position:relative;overflow:hidden}.contact-section::before{content:"↗";position:absolute;right:3%;top:-.3em;font-size:min(42vw,550px);font-weight:900;color:rgba(223,255,114,.08);pointer-events:none}.contact-inner{position:relative}.contact-section .eyebrow{color:var(--acid)}.contact-section h2{font-size:clamp(3.8rem,9vw,10rem);line-height:.87;letter-spacing:-.09em;text-transform:uppercase;margin:18px 0 28px;max-width:970px}.contact-section h2 span{color:var(--acid)}.contact-section p{color:#dfd9ec;max-width:580px;line-height:1.6;margin:0 0 30px}.contact-links{display:flex;flex-wrap:wrap;gap:13px}.contact-meta{display:flex;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.28);margin-top:94px;padding-top:18px;font:500 .68rem "DM Mono",monospace;text-transform:uppercase;letter-spacing:.04em}.contact-meta a{text-decoration:none}.contact-meta a:hover{text-decoration:underline}
+    .glass-cursor{position:fixed;left:0;top:0;width:44px;height:44px;border-radius:50%;z-index:9999;pointer-events:none;opacity:0;transform:translate3d(-100px,-100px,0) translate(-50%,-50%);border:1.5px solid rgba(255,255,255,.9);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35),inset -5px -7px 12px rgba(255,255,255,.35),0 5px 20px rgba(28,12,65,.22),0 0 0 1px rgba(13,13,15,.23);background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.78),rgba(210,193,255,.25) 33%,rgba(155,135,255,.23) 67%,rgba(255,255,255,.42));-webkit-backdrop-filter:blur(8px) saturate(1.7);backdrop-filter:blur(8px) saturate(1.7);transition:width .18s,height .18s,opacity .18s;will-change:transform}.glass-cursor::before{content:"";position:absolute;width:34%;height:22%;left:21%;top:13%;border-radius:50%;background:rgba(255,255,255,.8);filter:blur(2px);transform:rotate(-28deg)}.glass-cursor.is-active{width:66px;height:66px}.glass-cursor.is-visible{opacity:1}
+    @media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){html.has-glass-cursor,html.has-glass-cursor a,html.has-glass-cursor button{cursor:none}}
+    @media (max-width:1100px){.hero-inner{grid-template-columns:1fr .48fr;gap:30px}.metrics{grid-template-columns:repeat(2,1fr)}.case{grid-column:span 6}.method-grid{grid-template-columns:repeat(3,1fr)}.step:nth-child(3){border-right:0}.step:nth-child(n+4){border-top:2px solid var(--ink)}.stack-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:760px){.wrap{width:min(100% - 32px,1390px)}.site-header .wrap{min-height:68px;align-items:flex-start;padding:14px 0}.brand{font-size:1.05rem}.nav{gap:0}.nav a:not(.nav-cta){display:none}.nav .nav-cta{font-size:.64rem;padding:9px}.hero-inner{display:block;padding:70px 0 65px}.hero h1{font-size:clamp(4.5rem,17vw,8rem)}.hero-aside{margin-top:42px;max-width:410px}.status-card{transform:rotate(1deg)}.vertical-note{display:none}.section{padding:75px 0}.section-top{display:block}.section-heading{gap:11px}.section-top p{margin:18px 0 0}.intro-grid,.governance{grid-template-columns:1fr}.case-grid{gap:16px}.case,.case.featured,.case.wide{grid-column:span 12;min-height:auto}.method-grid{grid-template-columns:repeat(2,1fr)}.step:nth-child(3){border-right:2px solid var(--ink)}.step:nth-child(2n){border-right:0}.step:nth-child(n+3){border-top:2px solid var(--ink)}.timeline-row{grid-template-columns:110px 1fr;gap:14px}.timeline-desc{grid-column:2}.contact-section{padding-top:75px}.contact-meta{flex-direction:column;margin-top:70px}}
+    @media (max-width:480px){.metrics{gap:12px}.metric{min-height:138px;padding:15px;box-shadow:4px 4px 0 var(--ink)}.metric strong{font-size:2.65rem}.metric span{font-size:.72rem}.section h2{font-size:2.8rem}.stack-grid{grid-template-columns:1fr}.method-grid{grid-template-columns:1fr}.step,.step:nth-child(3){border-right:0}.step:nth-child(n+2){border-top:2px solid var(--ink)}.step{min-height:180px}.step .symbol{margin:12px 0}.timeline-row{grid-template-columns:1fr}.timeline-desc{grid-column:1}.hero-actions .button{width:100%}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker-track{animation:none}.glass-cursor{display:none}.button,.case,.nav a{transition:none}}
+    @media (hover:none),(pointer:coarse){.glass-cursor{display:none}}
+  </style>
 </head>
-<body class="antialiased">
-
-    <!-- === PRZYKLEJONY NAGŁÓWEK === -->
-    <header class="sticky top-0 z-50 w-full p-4 bg-opacity-80 backdrop-blur-sm" style="background-color: rgba(253, 240, 213, 0.8);">
-        <div class="container mx-auto flex justify-between items-center">
-            <!-- Zmiana 2: Pusty nagłówek -->
-            <h1 class="text-3xl md:text-4xl">&nbsp;</h1>
-            <nav class="hidden md:flex gap-2">
-                <!-- Zmiana 1: Tłumaczenie -->
-                <a href="#profile" class="brutalist-button">Profile</a>
-                <a href="#experience" class="brutalist-button">Experience</a>
-                <a href="#skills" class="brutalist-button">Skills</a>
-                <a href="#contact" class="brutalist-button">Contact</a>
-            </nav>
-            <!-- Menu mobilne (proste) -->
-            <div class="md:hidden">
-                <a href="#contact" class="brutalist-button">Contact</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- === SEKCJA HERO === -->
-    <section class="container mx-auto p-4 md:p-8 mt-8 md:mt-16">
-        <!-- Zmiana 3: Animacje AOS -->
-        <div class="text-center md:text-left">
-            <h2 class="text-6xl md:text-8xl lg:text-9xl font-black leading-none" data-aos="fade-down">
-                Mikołaj<br>Roszak
-            </h2>
-            <!-- Zmiana 1: Tłumaczenie -->
-            <p class="text-2xl md:text-3xl font-bold mt-4 text-gray-700" data-aos="fade-up" data-aos-delay="200">
-                (IT Transformation, Analytics & Process Specialist)
-            </p>
-        </div>
-    </section>
-
-    <!-- === MARQUEE / PRZEWIJANY PASEK === -->
-    <div class="marquee-container my-12 py-4">
-        <div class="marquee-content">
-            <!-- Zmiana 1: Tłumaczenie -->
-            <span>AI TRANSFORMATION LEADER</span>
-            <span>PROCESS ANALYSIS (RACI/ITIL)</span>
-            <span>POWERAPPS & AUTOMATION</span>
-            <span>KANBAN & WATERFALL</span>
-            <span>L2/L3 SUPPORT</span>
-            <span>M365 & COPILOT</span>
-            <!-- Powtórzenie dla płynnej pętli -->
-            <span>AI TRANSFORMATION LEADER</span>
-            <span>PROCESS ANALYSIS (RACI/ITIL)</span>
-            <span>POWERAPPS & AUTOMATION</span>
-            <span>KANBAN & WATERFALL</span>
-            <span>L2/L3 SUPPORT</span>
-            <span>M365 & COPILOT</span>
-        </div>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Mikołaj Roszak, back to top"><span class="brand-mark" aria-hidden="true">MR.</span><span>MIKOŁAJ ROSZAK</span></a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#impact">Impact</a><a href="#work">Work</a><a href="#method">Approach</a><a href="#stack">Stack</a><a href="#experience">Experience</a><a class="nav-cta" href="#contact">Let's talk ↗</a>
+      </nav>
     </div>
-
-    <!-- === GŁÓWNA ZAWARTOŚĆ (SIATKA) === -->
-    <main class="container mx-auto p-4">
-        
-        <!-- Układ siatki: 2 kolumny na dużym ekranie, 1 na małym -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
-            <!-- === Kolumna 1 (Profil i Edukacja) === -->
-            <div class="lg:col-span-1 flex flex-col gap-6">
-
-                <!-- Karta: Profil Zawodowy -->
-                <!-- Zmiana 3: Animacja AOS -->
-                <article id="profile" class="brutalist-card bg-[#669BBC] p-6" data-aos="fade-right"> <!-- Jasny niebieski -->
-                    <!-- Zmiana 1: Tłumaczenie -->
-                    <h3 class="text-3xl mb-4">Professional Profile</h3>
-                    <p class="mb-4">
-                        Experienced specialist combining advanced L2/L3 support with strategic
-                        initiatives, process analysis, and AI implementations in key Logistics
-                        (VGP Center) and Automotive areas.
-                    </p>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li><strong>AI Transformation Leader:</strong> Responsible for planning, pilot implementation, and presentation of Copilot M365 to Management. Trained >100 people.</li>
-                        <li><strong>Analysis & Processes (RACI/ITIL):</strong> Created new FileCloud file exchange procedure (RACI) from scratch. Active participation in Change Management (ITIL).</li>
-                        <li><strong>Optimization & Automation:</strong> Deployed PowerApps application and AI automation, saving 8h/month.</li>
-                        <li><strong>Project Methodologies:</strong> Practical knowledge of Kanban and Waterfall.</li>
-                    </ul>
-                </article>
-
-                <!-- Karta: Wykształcenie -->
-                <!-- Zmiana 3: Animacja AOS -->
-                <article id="education" class="brutalist-card bg-[#F0A690] p-6" data-aos="fade-right" data-aos-delay="150"> <!-- Jasny pomarańczowy -->
-                    <!-- Zmiana 1: Tłumaczenie -->
-                    <h3 class="text-3xl mb-4">Education</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <h4 class="font-bold">MSc, Computer Science</h4>
-                            <p class="text-sm">Collegium Da Vinci (October 2025 - Present)</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold">BSc, IT in Management</h4>
-                            <p class="text-sm">Collegium Da Vinci (October 2021 - June 2024)</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold">IT Technician</h4>
-                            <p class="text-sm">Zespół Szkół nr 1 w Swarzędzu (2017 - 2021)</p>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-
-            <!-- === Kolumna 2 (Doświadczenie i Kompetencje) === -->
-            <div class="lg:col-span-2 flex flex-col gap-6">
-
-                <!-- Karta: Doświadczenie Zawodowe -->
-                <!-- Zmiana 3: Animacja AOS -->
-                <article id="experience" class="brutalist-card bg-[#C1D5A4] p-6" data-aos="fade-left"> <!-- Jasna zieleń -->
-                    <!-- Zmiana 1: Tłumaczenie -->
-                    <h3 class="text-3xl mb-4">Professional Experience</h3>
-                    
-                    <div class="mb-6">
-                        <h4 class="text-2xl font-bold">Service Desk Specialist</h4>
-                        <p class="font-bold text-gray-700">Volkswagen Group Polska (December 2022 - Present)</p>
-                        <p class="text-sm italic mb-2">(Extended scope: Process Analysis, L3 Support, Project Leader Support)</p>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li><strong>AI Implementation/Digital Transformation Leader:</strong> Managed Copilot M365 pilot phase (planning, Kanban deployment, presentations to Management, training).</li>
-                            <li><strong>Process Analysis & Optimization:</strong> Created RACI procedure and documentation for FileCloud. Participated in Change Management. Deployed PowerApps and AI automation.</li>
-                            <li><strong>International Cooperation:</strong> Regular meetings in English with German HQ (license/AI projects), coordination of external vendors.</li>
-                            <li><strong>Critical L3 Support & Administration:</strong> Ensured system continuity at VGP Logistics Center (supporting 150-200 users), AD/Intune administration.</li>
-                            <li><strong>Security & Compliance:</strong> Implemented CyberSecurity (SOC) recommendations, license monitoring.</li>
-                        </ul>
-                    </div>
-
-                    <div class="mb-6 opacity-80">
-                        <h4 class="text-xl font-bold">Helpdesk Intern</h4>
-                        <p class="font-bold text-gray-700">Volkswagen Group Polska (January 2022)</p>
-                    </div>
-
-                    <div class="opacity-80">
-                        <h4 class="text-xl font-bold">Service Technician / Salesman</h4>
-                        <p class="font-bold text-gray-700">Medyk PC, Swarzędz (May 2021 - December 2021)</p>
-                    </div>
-                </article>
-
-                <!-- Karta: Kluczowe Kompetencje -->
-                <!-- Zmiana 3: Animacja AOS -->
-                <article id="skills" class="brutalist-card bg-[#FFD9DA] p-6" data-aos="fade-left" data-aos-delay="150"> <!-- Jasny róż -->
-                    <!-- Zmiana 1: Tłumaczenie -->
-                    <h3 class="text-3xl mb-4">Key Competencies</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <!-- Kolumna 1 -->
-                        <div>
-                            <h4 class="text-lg font-bold underline">Methodologies & Processes</h4>
-                            <ul class="list-none mt-2 space-y-1">
-                                <li>Kanban & Waterfall</li>
-                                <li>ITIL (Change Mgmt)</li>
-                                <li>Technical Writing</li>
-                                <li>RACI</li>
-                                <li>Miro, Visual Paradigm</li>
-                            </ul>
-                        </div>
-                        <!-- Kolumna 2 -->
-                        <div>
-                            <h4 class="text-lg font-bold underline">Architecture & Automation</h4>
-                            <ul class="list-none mt-2 space-y-1">
-                                <li>PowerApps</li>
-                                <li>M365 (incl. Copilot AI)</li>
-                                <li>PowerShell (Scripting)</li>
-                                <li>AI Automation</li>
-                                <li>SQL (Basics)</li>
-                            </ul>
-                        </div>
-                        <!-- Kolumna 3 -->
-                        <div>
-                            <h4 class="text-lg font-bold underline">Administration & Support</h4>
-                            <ul class="list-none mt-2 space-y-1">
-                                <li>English B2</li>
-                                <li>Active Directory (AD)</li>
-                                <li>Intune (MDM)</li>
-                                <li>Critical Ops Support</li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-            </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <div>
+          <div class="hero-kicker"><span class="pulse" aria-hidden="true"></span> ENTERPRISE AI / AUTOMATION / ADOPTION</div>
+          <h1 id="hero-title"><span>MIKOŁAJ</span><span class="outline">ROSZAK.</span></h1>
+          <p class="role">Senior AI &amp; Automation Specialist <em>building AI that works in the real world.</em></p>
+          <p class="hero-copy">I turn business friction into useful AI products: from discovery and governance to working agents, automation and adoption across the organization.</p>
+          <div class="hero-actions"><a class="button" href="#work">Explore selected work <span aria-hidden="true">↘</span></a><a class="button secondary" href="mailto:mr29448@gmail.com">Get in touch <span aria-hidden="true">↗</span></a></div>
         </div>
-    </main>
-
-    <!-- === STOPKA I KONTAKT === -->
-    <!-- Zmiana 3: Animacja AOS -->
-    <footer id="contact" class="mt-16 p-8 border-t-2 border-black bg-white" data-aos="fade-up">
-        <div class="container mx-auto text-center">
-            <!-- Zmiana 1: Tłumaczenie -->
-            <h2 class="text-4xl md:text-6xl font-black mb-6">Let's Talk.</h2>
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-                <a href="mailto:mr29448@gmail.com" class="brutalist-button text-lg md:text-xl !bg-[#669BBC]">
-                    mr29448@gmail.com
-                </a>
-                <a href="https://www.linkedin.com/in/mikołaj-roszak-9a1609227" target="_blank" rel="noopener noreferrer" class="brutalist-button text-lg md:text-xl !bg-[#C1D5A4]">
-                    LinkedIn
-                </a>
-            </div>
-            <p class="mt-8 text-sm text-gray-600">
-                Mikołaj Roszak | Location: Swarzędz, 62-020
-            </p>
-        </div>
-    </footer>
-
-    <!-- Zmiana 3: Dodanie skryptu AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init({
-        duration: 800, // Czas trwania animacji
-        once: false, // Czy animacja ma się odpalić tylko raz
-        mirror: true, // Czy elementy mają się animować "z powrotem" przy scrollu w górę
-        offset: 120, // Opóźnienie startu animacji
-      });
-    </script>
-
+        <aside class="hero-aside" aria-label="Current role">
+          <div class="status-card"><span class="eyebrow">Currently / Jul 2026 →</span><strong>Volkswagen Financial Services Poland</strong><p>IT Delivery · Senior AI &amp; Automation Specialist</p><span class="mini-tag">Local AI Expert · Worldwide VWFS AI Community</span></div>
+          <span class="vertical-note">Based in Poznań, Poland / working across VWFS Poland</span>
+        </aside>
+      </div>
+    </section>
+    <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>DISCOVER THE PROBLEM <b>✳</b></span><span>BUILD THE SOLUTION <b>✳</b></span><span>MAKE IT STICK <b>✳</b></span><span>GOVERN RESPONSIBLY <b>✳</b></span><span>DISCOVER THE PROBLEM <b>✳</b></span><span>BUILD THE SOLUTION <b>✳</b></span><span>MAKE IT STICK <b>✳</b></span><span>GOVERN RESPONSIBLY <b>✳</b></span></div></div>
+    <section class="section" id="impact" aria-labelledby="impact-title"><div class="wrap">
+      <div class="section-top"><div class="section-heading"><span class="section-index">01</span><h2 id="impact-title">Impact in<br>numbers.</h2></div><p>Production delivery, hands-on enablement and a program designed for wider scale.</p></div>
+      <div class="metrics"><div class="metric"><strong>4–5</strong><div><span>production Copilot agents</span><small>VWFS Poland</small></div></div><div class="metric"><strong>20–30</strong><div><span>users of deployed agent solutions</span><small>current reach</small></div></div><div class="metric"><strong>25+</strong><div><span>trained AI Champions</span><small>capability building</small></div></div><div class="metric"><strong>500+</strong><div><span>employees in company-wide AI program</span><small>planned rollout</small></div></div></div>
+      <div class="intro-grid"><div class="intro-panel"><span class="eyebrow">// What I bring</span><p><mark>Hands-on delivery</mark> meets product thinking: I shape use cases, build solutions and bring people along for the rollout.</p></div><div class="intro-panel dark"><span class="eyebrow">// Where I work</span><p>Regulated enterprise AI across business, IT, Compliance, Security and HR. Local execution connected to the worldwide VWFS AI Community.</p></div></div>
+    </div></section>
+    <section class="section case-section" id="work" aria-labelledby="work-title"><div class="wrap">
+      <div class="section-top"><div class="section-heading"><span class="section-index">02</span><h2 id="work-title">Selected<br>work.</h2></div><p>A mix of production tools, adoption systems and carefully scoped experiments.</p></div>
+      <div class="case-grid">
+        <article class="case featured"><div class="case-top"><span class="case-id">CASE_01 / AGENT SYSTEMS</span><span class="case-state">In production</span></div><h3>Copilot agents<br>for real workflows.</h3><p>Designed and deployed 4–5 knowledge and operational Copilot agents serving around 20–30 users. The work includes reusable instructions, Power Automate flows and generative processing for a Customer Service mailbox.</p><div class="case-foot"><span class="chip">Copilot Studio</span><span class="chip">Power Automate</span><span class="chip">20–30 users</span></div></article>
+        <article class="case featured acid"><div class="case-top"><span class="case-id">CASE_02 / PRIVACY BY DESIGN</span><span class="case-state">PoC · legal review</span></div><h3>Local AI<br>Project.</h3><p>Built a 100% local proof of concept to help analyze Contact Center conversations in a business context of roughly 1,000 calls per day. Whisper transcribes audio; Mistral 3B supports downstream analysis. Legal and compliance discussions are ongoing before any rollout.</p><div class="case-foot"><span class="chip">Whisper</span><span class="chip">Mistral 3B</span><span class="chip">Python / Docker</span></div></article>
+        <article class="case"><div class="case-top"><span class="case-id">CASE_03 / KNOWLEDGE</span><span class="case-state">Concept demo</span></div><h3>Project<br>Memory.</h3><p>Demonstrated a Microsoft 365 Copilot Notebooks concept for AI Ambassadors and Project Managers. Manually supplied sources become project documentation, meeting status, decisions and next steps.</p><div class="case-foot"><span class="chip">M365 Copilot</span><span class="chip">Notebooks</span></div></article>
+        <article class="case"><div class="case-top"><span class="case-id">CASE_04 / OPERATIONS</span><span class="case-state">Built</span></div><h3>Training<br>platform.</h3><p>Created a Power Apps and Power Automate registration system with training creation, an admin panel, concurrency handling to prevent double booking and automated attendance reporting.</p><div class="case-foot"><span class="chip">Power Apps</span><span class="chip">Power Automate</span><span class="chip">HR reporting</span></div></article>
+        <article class="case"><div class="case-top"><span class="case-id">CASE_05 / ADOPTION</span><span class="case-state">Built</span></div><h3>AI, made<br>social.</h3><p>Built a company-wide Power Apps gamification app where employees share AI and automation solutions and see how their work contributes across the business.</p><div class="case-foot"><span class="chip">Power Apps</span><span class="chip">Gamification</span><span class="chip">Knowledge sharing</span></div></article>
+        <article class="case wide"><div class="case-top"><span class="case-id">CASE_06 / CAPABILITY</span><span class="case-state">Rolling out</span></div><h3>From champions<br>to company-wide AI.</h3><p>Developed an AI competency map and learning path with HR, trained 25+ AI Champions and delivered individual AI training for the Managing Director. Now helping launch a program designed for 500+ employees, including tailored sessions for business teams.</p><div class="case-foot"><span class="chip">25+ champions</span><span class="chip">HR partnership</span><span class="chip">500+ planned</span></div></article>
+        <article class="case wide acid"><div class="case-top"><span class="case-id">CASE_07 / DISCOVERY TO DECISION</span><span class="case-state">Ongoing</span></div><h3>AI Solution<br>Sprints.</h3><p>Work with business teams to surface valuable opportunities, test feasibility and shape the next step. Bring Managing Director, IT Director, Compliance, Security, HR, Contact Center and central VWFS stakeholders into the decisions that matter.</p><div class="case-foot"><span class="chip">Discovery</span><span class="chip">Stakeholders</span><span class="chip">Governance</span></div></article>
+      </div>
+    </div></section>
+    <section class="section" id="method" aria-labelledby="method-title"><div class="wrap">
+      <div class="section-top"><div class="section-heading"><span class="section-index">03</span><h2 id="method-title">How I<br>work.</h2></div><p>From a messy problem to a solution people can use and the organization can approve.</p></div>
+      <div class="method-grid"><div class="step"><span class="num">01 / DISCOVER</span><div class="symbol" aria-hidden="true">◎</div><h3>Find friction</h3><p>Talk to the teams, map the workflow and understand the cost of the current way.</p></div><div class="step"><span class="num">02 / FRAME</span><div class="symbol" aria-hidden="true">◇</div><h3>Define value</h3><p>Clarify the use case, data boundaries, success measures and ownership.</p></div><div class="step"><span class="num">03 / BUILD</span><div class="symbol" aria-hidden="true">✳</div><h3>Prototype fast</h3><p>Make the smallest useful version, then test it against real work.</p></div><div class="step"><span class="num">04 / ALIGN</span><div class="symbol" aria-hidden="true">↗</div><h3>Earn trust</h3><p>Bring IT, Security, Compliance and business owners into rollout decisions.</p></div><div class="step"><span class="num">05 / SCALE</span><div class="symbol" aria-hidden="true">∞</div><h3>Make it stick</h3><p>Train champions, document patterns, measure use and keep improving.</p></div></div>
+      <div class="governance"><div><span class="eyebrow">// Enterprise reality</span><h3>Governance<br>is part of<br>the product.</h3></div><div><p>I contribute to VWFS Poland's AI strategy and the review and approval of new Copilot Studio use cases. I translate central VWFS procedures into local practice, while connecting adoption work to a clear competency map and learning path.</p><div class="tags"><span>AI strategy</span><span>Use-case approval</span><span>Security &amp; compliance</span><span>HR learning path</span><span>Worldwide AI Community</span></div></div></div>
+    </div></section>
+    <section class="section stack-section" id="stack" aria-labelledby="stack-title"><div class="wrap">
+      <div class="section-top"><div class="section-heading"><span class="section-index">04</span><h2 id="stack-title">Tools of<br>the trade.</h2></div><p>Practical tools chosen for the context, from Microsoft 365 to fully local AI experiments.</p></div>
+      <div class="stack-grid"><div class="stack-card"><h3>Enterprise AI</h3><ul><li>Microsoft 365 Copilot</li><li>Copilot Studio</li><li>Copilot Notebooks</li><li>Prompt design</li><li>AI governance</li></ul></div><div class="stack-card"><h3>Automation</h3><ul><li>Power Apps</li><li>Power Automate</li><li>Desktop Flows / RPA</li><li>Workflow design</li></ul></div><div class="stack-card"><h3>Local AI</h3><ul><li>Python</li><li>Docker</li><li>Whisper</li><li>Mistral 3B</li><li>PoC delivery</li></ul></div><div class="stack-card"><h3>Product &amp; people</h3><ul><li>Discovery</li><li>AI Solution Sprints</li><li>Stakeholder alignment</li><li>Training design</li><li>Adoption</li></ul></div></div>
+    </div></section>
+    <section class="section" id="experience" aria-labelledby="experience-title"><div class="wrap">
+      <div class="section-top"><div class="section-heading"><span class="section-index">05</span><h2 id="experience-title">The<br>timeline.</h2></div><p>A path from IT operations and automation to enterprise AI delivery.</p></div>
+      <div class="timeline"><div class="timeline-row"><div class="timeline-date">Jul 2026<br>— Present</div><div class="timeline-title">Senior AI &amp; Automation Specialist<small>Volkswagen Financial Services Poland · IT Delivery</small></div><p class="timeline-desc">Own and deliver AI and automation initiatives for VWFS Poland, from discovery to rollout planning. Local AI Expert in the worldwide VWFS AI Community; work across leadership, business, IT, Compliance, Security, HR and Contact Center.</p></div><div class="timeline-row"><div class="timeline-date">Dec 2022<br>— Jun 2026</div><div class="timeline-title">Service Desk Specialist<small>Volkswagen Group Polska · Poznań</small></div><p class="timeline-desc">Power Platform Developer &amp; AI Lead: trained <strong>150+ employees</strong>, grew an approximately <strong>100-member</strong> VGPower community and built an M365 Copilot workflow processing <strong>1,000+ Excel rows</strong>. Delivered Power Apps, RPA and process automation.</p></div><div class="timeline-row"><div class="timeline-date">Jan 2022<br>— Dec 2022</div><div class="timeline-title">Helpdesk Intern<small>Volkswagen Group Polska · Poznań</small></div><p class="timeline-desc">Supported employees and learned firsthand where better processes and automation could remove friction.</p></div><div class="timeline-row"><div class="timeline-date">May 2021<br>— Dec 2021</div><div class="timeline-title">Service Technician / Salesman<small>Medyk PC · Swarzędz</small></div><p class="timeline-desc">Customer-facing technical service, problem solving and communication.</p></div></div>
+    </div></section>
+  </main>
+  <footer class="contact-section" id="contact"><div class="wrap contact-inner"><span class="eyebrow">06 / NEXT CONVERSATION</span><h2>Let's make<br><span>it useful.</span></h2><p>Interested in enterprise AI that moves beyond a demo? Let's talk about a real business problem, the right solution and what it takes to make it work.</p><div class="contact-links"><a class="button" href="mailto:mr29448@gmail.com">mr29448@gmail.com <span aria-hidden="true">↗</span></a><a class="button secondary" href="https://www.linkedin.com/in/mikołaj-roszak-9a1609227/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a class="button secondary" href="https://github.com/miqshh" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div><div class="contact-meta"><span>© <span id="year">2026</span> Mikołaj Roszak · Poznań, Poland</span><span>Enterprise AI / Automation / Adoption</span><a href="#top">Back to top ↑</a></div></div></footer>
+  <div class="glass-cursor" aria-hidden="true"></div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (() => {
+      const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (!finePointer.matches || reducedMotion.matches) return;
+      const cursor = document.querySelector('.glass-cursor');
+      if (!cursor) return;
+      let x = -100, y = -100, frame = 0;
+      document.documentElement.classList.add('has-glass-cursor');
+      const render = () => { cursor.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`; frame = 0; };
+      window.addEventListener('pointermove', event => {
+        if (event.pointerType && event.pointerType !== 'mouse' && event.pointerType !== 'pen') return;
+        x = event.clientX; y = event.clientY;
+        cursor.classList.add('is-visible');
+        cursor.classList.toggle('is-active', Boolean(event.target.closest('a, button')));
+        if (!frame) frame = requestAnimationFrame(render);
+      }, {passive:true});
+      document.addEventListener('pointerout', event => { if (!event.relatedTarget) cursor.classList.remove('is-visible'); });
+      window.addEventListener('blur', () => cursor.classList.remove('is-visible'));
+    })();
+  </script>
 </body>
 </html>
